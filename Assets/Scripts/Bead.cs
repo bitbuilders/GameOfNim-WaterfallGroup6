@@ -9,16 +9,21 @@ public class Bead : MonoBehaviour
 
     public void Select()
     {
-        
+        Selected = !Selected;
     }
 
     public void DeSelect()
     {
-
+        Selected = false;
     }
 
     private void OnMouseDown()
     {
-        
+        List<Bead> selected = BoardManager.Instance.GetSelectedBeads();
+        Select();
+        if (selected.Count > 0 && selected[0].Heap != Heap)
+        {
+            DeSelect();
+        }
     }
 }
