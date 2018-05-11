@@ -50,8 +50,8 @@ public class BoardManager : Singleton<BoardManager>
                 break;
         }
 
-        //heaps = 4;
-        //beadsPerHeap = new int[] { 2, 3, 8, 9 };
+        heaps = 4;
+        beadsPerHeap = new int[] { 2, 3, 8, 9 };
 
         float x = -6.5f + (1.6f * (4 - heaps));
         float y = 0.0f;
@@ -71,7 +71,7 @@ public class BoardManager : Singleton<BoardManager>
                 m_heaps[i].Add(bead);
 
                 bY -= 1.1f + (0.1f * (9 - beadsPerHeap[i]));
-                bX = Random.Range(-1.25f, 1.25f);
+                bX = Random.Range(-1.0f, 1.0f);
             }
             x += 4.3f + (1.0f * (4 - heaps));
         }
@@ -84,7 +84,7 @@ public class BoardManager : Singleton<BoardManager>
 
     private void CreateNewBeadInHeap(int heap)
     {
-
+        Game.Instance.QuitGame();
     }
 
     public bool IsValidHeap(int heap)
