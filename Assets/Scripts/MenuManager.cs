@@ -44,7 +44,19 @@ public class MenuManager : MonoBehaviour
 
     private void SetTurnData()
     {
-        TurnManager.Instance.m_player1Name = m_p1Name.text;
-        TurnManager.Instance.m_player2Name = m_p2Name.text;
+        Game.Instance.m_player1Name = string.IsNullOrEmpty(m_p1Name.text) ? "Player 1" : m_p1Name.text;
+        if (Game.Instance.GameMode == GameMode.PvP)
+        {
+            Game.Instance.m_player2Name = string.IsNullOrEmpty(m_p2Name.text) ? "Player 2" : m_p2Name.text;
+        }
+        else if (Game.Instance.GameMode == GameMode.PvC)
+        {
+            Game.Instance.m_player2Name = "Computer";
+        }
+    }
+
+    public void Quit()
+    {
+        Game.Instance.QuitGame();
     }
 }

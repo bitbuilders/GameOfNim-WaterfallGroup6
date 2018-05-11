@@ -13,11 +13,16 @@ public class EndManager : Singleton<EndManager>
         Text text = GameObject.FindGameObjectWithTag("WinningText").GetComponent<Text>();
         if (TurnManager.Instance.m_playerType == PlayerType.PLAYER_1)
         {
-            text.text = TurnManager.Instance.m_player2Name + " has won the game!";
+            text.text = Game.Instance.m_player2Name + " has won the game!";
         }
         else
         {
-            text.text = TurnManager.Instance.m_player1Name + " has won the game!";
+            text.text = Game.Instance.m_player1Name + " has won the game!";
         }
+    }
+
+    public void End()
+    {
+        Game.Instance.LoadScene("MainMenu");
     }
 }

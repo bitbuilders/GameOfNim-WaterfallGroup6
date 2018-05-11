@@ -13,7 +13,7 @@ public class BoardManager : Singleton<BoardManager>
         {
             for (int i = 0; i < m_heaps.Count; ++i)
             {
-                if (m_heaps[i].Count > 1)
+                if (m_heaps[i].Count > 0)
                     return false;
             }
             return true;
@@ -26,6 +26,8 @@ public class BoardManager : Singleton<BoardManager>
     {
         m_heaps = new List<List<Bead>>();
         CreateBoard();
+        TurnManager.Instance.m_playerType = PlayerType.PLAYER_2;
+        TurnManager.Instance.NextTurn();
     }
 
     private void CreateBoard()
@@ -86,14 +88,7 @@ public class BoardManager : Singleton<BoardManager>
 
     private void CreateNewBeadInHeap(int heap)
     {
-        if (heap == 1)
-        {
-            Game.Instance.QuitGame();
-        }
-        else
-        {
-            Game.Instance.LoadScene("MainMenu");
-        }
+
     }
 
     public bool IsValidHeap(int heap)

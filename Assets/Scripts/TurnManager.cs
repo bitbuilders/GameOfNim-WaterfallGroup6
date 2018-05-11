@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TurnManager : Singleton<TurnManager> 
 {
-	public string m_player1Name;
-	public string m_player2Name;
 	[SerializeField] Text m_playerText;
 	public Computer m_computer;
 	public PlayerType m_playerType;
@@ -17,11 +15,11 @@ public class TurnManager : Singleton<TurnManager>
 		{
 			case PlayerType.PLAYER_1:
 				m_playerType = PlayerType.PLAYER_2;
-				curPlayerName = m_player1Name;
+				curPlayerName = Game.Instance.m_player2Name;
 				break;
 			case PlayerType.PLAYER_2:
 				m_playerType = PlayerType.PLAYER_1;
-				curPlayerName = m_player2Name;
+				curPlayerName = Game.Instance.m_player1Name;
 				break;	
 		}
 		m_playerText.text = (curPlayerName + "'s Turn");

@@ -9,17 +9,15 @@ public class RemoveManager : Singleton<RemoveManager>
         if (HasSelectedBead())
         {
             BoardManager boardManager = BoardManager.Instance;
+            List<Bead> selected = boardManager.GetSelectedBeads();
             boardManager.Locked = true;
-            StartCoroutine(PopBeads(boardManager.GetSelectedBeads()));
-
-            if (boardManager.BoardIsEmpty)
+            int count = 0;
+            int removed = selected.Count;
+            for (int i = 0; i < boardManager.m_heaps.Count; ++i)
             {
-                EndGame();
+                count += boardManager.m_heaps[i].Count;
             }
-            else
-            {
-                NextTurn();
-            }
+            StartCoroutine(PopBeads(selected));
         }
     }
 
@@ -35,7 +33,15 @@ public class RemoveManager : Singleton<RemoveManager>
             yield return new WaitForSeconds(0.1f);
         }
         
-        BoardManager.Instance.Locked = false;
+        boardManager.Locked = false;
+        if (boardManager.BoardIsEmpty)
+        {
+            EndGame();
+        }
+        else
+        {
+            NextTurn();
+        }
     }
 
     private void NextTurn()

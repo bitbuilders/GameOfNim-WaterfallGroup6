@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Game : Singleton<Game>
 {
-
+    public string m_player1Name;
+    public string m_player2Name;
     public Difficulty Difficulty { get; set; }
     public GameMode GameMode { get; set; }
     static Game ms_instance = null;
