@@ -35,10 +35,10 @@ public class MenuManager : MonoBehaviour
     {
         Game.Instance.GameMode = m_gameMode;
 
-        Difficulty difficulty;
+        Difficulty difficulty = Difficulty.EASY;
         if (m_easy.isOn) difficulty = Difficulty.EASY;
         else if (m_meduim.isOn) difficulty = Difficulty.MEDIUM;
-        else difficulty = Difficulty.HARD;
+        else if (m_hard.isOn) difficulty = Difficulty.HARD;
         Game.Instance.Difficulty = difficulty;
     }
 
