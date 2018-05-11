@@ -907,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &368883963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1851,6 +1851,7 @@ GameObject:
   - component: {fileID: 707720792}
   - component: {fileID: 707720794}
   - component: {fileID: 707720793}
+  - component: {fileID: 707720795}
   m_Layer: 5
   m_Name: DifficultyAndNamePvC
   m_TagString: Untagged
@@ -1914,6 +1915,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 707720791}
+--- !u!114 &707720795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 707720791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6cff42174348b4a9bd90e83984457e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_easy: {fileID: 789129249}
+  m_meduim: {fileID: 1191784628}
+  m_hard: {fileID: 739351919}
+  m_p1Name: {fileID: 1307783626}
+  m_p2Name: {fileID: 0}
+  m_gameMode: 1
 --- !u!1 &721316053
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,7 +4095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1313189601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5656,7 +5674,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1978171688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 707720791}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1978171688
@@ -5845,6 +5874,7 @@ GameObject:
   - component: {fileID: 2048835291}
   - component: {fileID: 2048835293}
   - component: {fileID: 2048835292}
+  - component: {fileID: 2048835294}
   m_Layer: 5
   m_Name: DifficultyAndNamePvP
   m_TagString: Untagged
@@ -5909,6 +5939,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048835290}
+--- !u!114 &2048835294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048835290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6cff42174348b4a9bd90e83984457e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_easy: {fileID: 913402107}
+  m_meduim: {fileID: 1894287816}
+  m_hard: {fileID: 1578319296}
+  m_p1Name: {fileID: 1118400457}
+  m_p2Name: {fileID: 970469650}
+  m_gameMode: 0
 --- !u!1 &2052961858
 GameObject:
   m_ObjectHideFlags: 0
