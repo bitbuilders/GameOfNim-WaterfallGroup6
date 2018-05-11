@@ -50,13 +50,16 @@ public class BoardManager : Singleton<BoardManager>
                 break;
         }
 
-        float x = -5.0f;
+        //heaps = 4;
+        //beadsPerHeap = new int[] { 2, 3, 8, 9 };
+
+        float x = -6.5f + (1.6f * (4 - heaps));
         float y = 0.0f;
         for (int i = 0; i < heaps; ++i)
         {
             GameObject heap = Instantiate(m_heapTemplate, new Vector3(x, y), Quaternion.identity, transform);
             float bX = 0.0f;
-            float bY = 4.0f;
+            float bY = 4.3f - (0.25f * (9 - beadsPerHeap[i]));
             m_heaps.Add(new List<Bead>());
             for (int j = 0; j < beadsPerHeap[i]; ++j)
             {
@@ -66,9 +69,11 @@ public class BoardManager : Singleton<BoardManager>
                 bead.DeSelect();
                 bead.Heap = i;
                 m_heaps[i].Add(bead);
-                bY -= 2.0f;
+
+                bY -= 1.1f + (0.1f * (9 - beadsPerHeap[i]));
+                bX = Random.Range(-1.25f, 1.25f);
             }
-            x += 7.0f;
+            x += 4.3f + (1.0f * (4 - heaps));
         }
     }
 
