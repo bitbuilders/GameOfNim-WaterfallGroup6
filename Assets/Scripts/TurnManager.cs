@@ -25,5 +25,13 @@ public class TurnManager : Singleton<TurnManager>
 				break;	
 		}
 		m_playerText.text = (curPlayerName + "'s Turn");
+		if(m_playerType == PlayerType.PLAYER_2 && Game.Instance.GameMode == GameMode.PvC)
+		{
+			if(m_computer == null)
+			{
+				m_computer = (Computer)ScriptableObject.CreateInstance("Computer");
+			}
+			m_computer.MakeMove();
+		}
 	}
 }
