@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Bubble_Pop
+  m_Name: Red_Bubble_Pop
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isPopped
@@ -13,7 +13,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -118,7 +118,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: be76a67f3b27d401eb351b19ffcaccae, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1bfd46e99a0ab4a5a86caec673336af4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
