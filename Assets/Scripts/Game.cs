@@ -22,12 +22,12 @@ public class Game : Singleton<Game>
         }
     }
 
-    void LoadScene(string scene)
+    public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
