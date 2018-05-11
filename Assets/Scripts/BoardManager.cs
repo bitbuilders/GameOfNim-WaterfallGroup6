@@ -59,18 +59,20 @@ public class BoardManager : Singleton<BoardManager>
         {
             GameObject heap = Instantiate(m_heapTemplate, new Vector3(x, y), Quaternion.identity, transform);
             float bX = 0.0f;
-            float bY = 4.3f - (0.25f * (9 - beadsPerHeap[i]));
+            float bY = 3.6f - (0.25f * (9 - beadsPerHeap[i]));
+            float scale = 0.5f - (0.03f * (beadsPerHeap[i] - 2));
             m_heaps.Add(new List<Bead>());
             for (int j = 0; j < beadsPerHeap[i]; ++j)
             {
                 GameObject bubble = Instantiate(m_beadTemplate, Vector3.zero, Quaternion.identity, heap.transform);
+                bubble.GetComponentInChildren<SpriteRenderer>().transform.localScale = new Vector3(scale, scale);
                 bubble.transform.localPosition = new Vector3(bX, bY);
                 Bead bead = bubble.GetComponent<Bead>();
                 bead.DeSelect();
                 bead.Heap = i;
                 m_heaps[i].Add(bead);
 
-                bY -= 1.1f + (0.1f * (9 - beadsPerHeap[i]));
+                bY -= 0.8f + (0.15f * (9 - beadsPerHeap[i]));
                 bX = Random.Range(-1.0f, 1.0f);
             }
             x += 4.3f + (1.0f * (4 - heaps));
@@ -84,7 +86,14 @@ public class BoardManager : Singleton<BoardManager>
 
     private void CreateNewBeadInHeap(int heap)
     {
-        Game.Instance.QuitGame();
+        if (heap == 1)
+        {
+            Game.Instance.QuitGame();
+        }
+        else
+        {
+            Game.Instance.LoadScene("MainMenu");
+        }
     }
 
     public bool IsValidHeap(int heap)

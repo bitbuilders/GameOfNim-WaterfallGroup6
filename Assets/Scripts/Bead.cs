@@ -10,6 +10,16 @@ public class Bead : MonoBehaviour
     public void Select()
     {
         Selected = !Selected;
+        if (Selected)
+        {
+            SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
+            renderer.color = Color.red;
+        }
+        else
+        {
+            SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
+            renderer.color = Color.blue;
+        }
     }
 
     public void DeSelect()
