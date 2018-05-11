@@ -7,11 +7,24 @@ public class BoardManager : Singleton<BoardManager>
     public List<List<Bead>> m_heaps = null;
     [SerializeField] GameObject m_heapTemplate = null;
     [SerializeField] GameObject m_beadTemplate = null;
-    public bool BoardIsEmpty { get; private set; }
+    public bool BoardIsEmpty
+    {
+        get
+        {
+            for (int i = 0; i < m_heaps.Count; ++i)
+            {
+                if (m_heaps[i].Count > 1)
+                    return false;
+            }
+            return true;
+        }
+        private set { }
+    }
     public bool Locked { get; set; }
 
     private void Start()
     {
+        m_heaps = new List<List<Bead>>();
         CreateBoard();
     }
 
@@ -44,11 +57,16 @@ public class BoardManager : Singleton<BoardManager>
             GameObject heap = Instantiate(m_heapTemplate, new Vector3(x, y), Quaternion.identity, transform);
             float bX = 0.0f;
             float bY = 4.0f;
+            m_heaps.Add(new List<Bead>());
             for (int j = 0; j < beadsPerHeap[i]; ++j)
             {
-                bY -= 2.0f;
                 GameObject bubble = Instantiate(m_beadTemplate, Vector3.zero, Quaternion.identity, heap.transform);
                 bubble.transform.localPosition = new Vector3(bX, bY);
+                Bead bead = bubble.GetComponent<Bead>();
+                bead.DeSelect();
+                bead.Heap = i;
+                m_heaps[i].Add(bead);
+                bY -= 2.0f;
             }
             x += 7.0f;
         }
@@ -68,6 +86,8 @@ public class BoardManager : Singleton<BoardManager>
     {
         bool valid = false;
 
+        valid = m_heaps[heap].Count > 0;
+
         return valid;
     }
 
@@ -75,12 +95,25 @@ public class BoardManager : Singleton<BoardManager>
     {
         int count = 0;
 
+        count = m_heaps[heap].Count;
+
         return count;
     }
 
     public List<Bead> GetSelectedBeads()
     {
         List<Bead> selectedBeads = new List<Bead>();
+
+        for (int i = 0; i < m_heaps.Count; ++i)
+        {
+            for (int j = 0; j < m_heaps[i].Count; ++j)
+            {
+                if (m_heaps[i][j].Selected)
+                {
+                    selectedBeads.Add(m_heaps[i][j]);
+                }
+            }
+        }
 
         return selectedBeads;
     }
