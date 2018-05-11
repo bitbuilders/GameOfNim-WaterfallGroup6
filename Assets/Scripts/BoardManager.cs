@@ -84,7 +84,7 @@ public class BoardManager : Singleton<BoardManager>
 
     private void CreateNewBeadInHeap(int heap)
     {
-
+        Game.Instance.QuitGame();
     }
 
     public bool IsValidHeap(int heap)
