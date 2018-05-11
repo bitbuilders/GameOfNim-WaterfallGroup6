@@ -10,6 +10,14 @@ public class EndManager : Singleton<EndManager>
     public void GameOver()
     {
         m_endPanel.SetActive(true);
-        Text text = m_endPanel.GetComponent<Text>();
+        Text text = GameObject.FindGameObjectWithTag("WinningText").GetComponent<Text>();
+        if (TurnManager.Instance.m_playerType == PlayerType.PLAYER_1)
+        {
+            text.text = TurnManager.Instance.m_player2Name + " has won the game!";
+        }
+        else
+        {
+            text.text = TurnManager.Instance.m_player1Name + " has won the game!";
+        }
     }
 }
