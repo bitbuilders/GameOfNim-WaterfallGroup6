@@ -50,8 +50,8 @@ public class BoardManager : Singleton<BoardManager>
                 break;
         }
 
-        heaps = 4;
-        beadsPerHeap = new int[] { 2, 3, 8, 9 };
+        //heaps = 4;
+        //beadsPerHeap = new int[] { 2, 3, 8, 9 };
 
         float x = -6.5f + (1.6f * (4 - heaps));
         float y = 0.0f;

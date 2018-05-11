@@ -8,7 +8,7 @@ public class TurnManager : Singleton<TurnManager>
 	public string m_player2Name;
 	[SerializeField] Text m_playerText;
 	public Computer m_computer;
-	private PlayerType m_playerType;
+	public PlayerType m_playerType;
 	
 	public void NextTurn()
 	{

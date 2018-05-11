@@ -28,7 +28,7 @@ public class MenuManager : MonoBehaviour
     {
         SetGameData();
         SetTurnData();
-        Game.Instance.LoadScene("MainGame");
+        Game.Instance.LoadScene("ColinsScene");
     }
 
     private void SetGameData()

@@ -13,12 +13,19 @@ public class Bead : MonoBehaviour
         if (Selected)
         {
             SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
-            renderer.color = Color.red;
+            if (TurnManager.Instance.m_playerType == PlayerType.PLAYER_1)
+            {
+                renderer.color = new Color(0, 255.0f / 255.0f, 78.0f / 255.0f);
+            }
+            else
+            {
+                renderer.color = new Color(255.0f / 255.0f, 78.0f / 255.0f, 53.0f / 255.0f);
+            }
         }
         else
         {
             SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
-            renderer.color = Color.blue;
+            renderer.color = new Color(0.0f, 243.0f / 255.0f, 255.0f / 255.0f);
         }
     }
 
@@ -35,7 +42,7 @@ public class Bead : MonoBehaviour
             Select();
             if (selected.Count > 0 && selected[0].Heap != Heap)
             {
-                DeSelect();
+                Select();
             }
         }
     }
