@@ -70,6 +70,8 @@ public class BoardManager : Singleton<BoardManager>
                 bubble.GetComponentInChildren<SpriteRenderer>().transform.localScale = new Vector3(scale, scale);
                 bubble.transform.localPosition = new Vector3(bX, bY);
                 Bead bead = bubble.GetComponent<Bead>();
+                SpriteRenderer renderer = bead.GetComponentInChildren<SpriteRenderer>();
+            renderer.color = new Color(0.0f, 243.0f / 255.0f, 255.0f / 255.0f );
                 bead.DeSelect();
                 bead.Heap = i;
                 m_heaps[i].Add(bead);

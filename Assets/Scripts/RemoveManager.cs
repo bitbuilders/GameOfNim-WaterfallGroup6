@@ -27,10 +27,14 @@ public class RemoveManager : Singleton<RemoveManager>
         int beadCount = beads.Count;
         for (int i = 0; i < beadCount; ++i)
         {
+            Animator anim = beads[0].gameObject.GetComponentInChildren(typeof(Animator)) as Animator;
+            anim.SetBool("isPopped", true);
+            Destroy(beads[0].gameObject, 1.0f);
+            //Debug.Log(anim.GetBool("isPopped"));
+            //Debug.Log(anim);
             boardManager.m_heaps[beads[0].Heap].Remove(beads[0]);
-            Destroy(beads[0].gameObject);
             beads.Remove(beads[0]);
-            yield return new WaitForSeconds(0.1f);
+            yield return null; //new WaitForSeconds(0.1f);
         }
         
         boardManager.Locked = false;

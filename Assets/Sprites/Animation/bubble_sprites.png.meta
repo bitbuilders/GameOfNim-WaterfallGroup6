@@ -10,6 +10,7 @@ TextureImporter:
     21300010: bubble_sprites_5
     21300012: bubble_sprites_6
     21300014: bubble_sprites_7
+    21300016: bubble_sprites_8
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -189,7 +190,7 @@ TextureImporter:
         width: 337.5
         height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,7 +210,7 @@ TextureImporter:
         width: 337.5
         height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,6 +257,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 568409451d3614850ad027fb6298422d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bubble_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 295
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea84b1b027204744950e50b280b28ea
       vertices: []
       indices: 
       edges: []
