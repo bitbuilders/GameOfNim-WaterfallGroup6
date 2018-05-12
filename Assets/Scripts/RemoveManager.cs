@@ -34,7 +34,7 @@ public class RemoveManager : Singleton<RemoveManager>
             //Debug.Log(anim);
             boardManager.m_heaps[beads[0].Heap].Remove(beads[0]);
             beads.Remove(beads[0]);
-            yield return null; //new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.7f);
         }
         
         boardManager.Locked = false;
