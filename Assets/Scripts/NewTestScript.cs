@@ -197,9 +197,7 @@ public class NewTestScript
         GameObject heap = Object.Instantiate(Resources.Load<GameObject>("Coral"));
 
         GameObject obj = new GameObject("Bob");
-        GameObject obj2 = new GameObject("Bob2");
         GameObject obj3 = new GameObject("Bob3");
-        RemoveManager removeManager = obj2.AddComponent<RemoveManager>();
         BoardManager boardManager = obj.AddComponent<BoardManager>();
         Game game = obj3.AddComponent<Game>();
         game.Difficulty = Difficulty.EASY;
@@ -209,7 +207,7 @@ public class NewTestScript
 
         int totalBeads = boardManager.m_heaps[0].Count + boardManager.m_heaps[1].Count;
         computer.MakeMove();
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
 
         int newBeads = boardManager.m_heaps[0].Count + boardManager.m_heaps[1].Count;
         Assert.AreNotEqual(totalBeads, newBeads);
